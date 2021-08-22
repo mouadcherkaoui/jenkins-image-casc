@@ -19,6 +19,28 @@ security:
       - global:
           strategy: triggeringUsersAuthorizationStrategy
 
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - string:
+              scope: GLOBAL
+              id: "token"
+              secret: "0c01f5a1334a866d2487fcf0ad04bce2343b015b"
+              description: "Sonar token"
+
 unclassified:
   location:
     url: http://server_ip:8080
+  sonarglobalconfiguration:
+    buildWrapperEnabled: true
+    installations:
+      - name: "test"
+        serverUrl: "http://localhost:9000"
+        serverAuthenticationToken: "0c01f5a1334a866d2487fcf0ad04bce2343b015b"
+        mojoVersion: "mojoVersion"
+        # additionalProperties: 
+        triggers:
+          skipScmCause: true
+          skipUpstreamCause: true
+          envVar: "envVar"

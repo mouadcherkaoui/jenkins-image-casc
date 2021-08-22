@@ -22,6 +22,9 @@ RUN apt-get install -y dotnet-sdk-5.0 && \
     export PATH=$PATH:$HOME/dotnet && \
     dotnet --version
 
+RUN dotnet tool install --tool-path /usr/local/bin dotnet-sonarscanner 
+#ENV PATH="${PATH}:/root/.dotnet/tools"
+RUN dotnet tool list -g
 # Good idea to switch back to the jenkins user.
 USER jenkins
 
